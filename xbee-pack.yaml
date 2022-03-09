@@ -1,0 +1,32 @@
+schema-version: 1.0
+
+type: builder
+
+description: |
+
+in:
+  version: 6.9.7.1
+
+dependencies:
+  - autoconf
+  - automake
+  - m4
+  - libtool
+
+provision:
+  - url:
+      from: https://github.com/kkos/oniguruma/archive/refs/tags/v{% version %}.tar.gz
+      todir: "{% xbeeSrc %}"
+
+build:
+  - shell:
+      cmds:
+        - ./configure --prefix=/usr
+        - make
+        - make install DESTDIR={% xbeeOut %}
+      directory: "{% xbeeSrc %}/oniguruma-{% version %}"
+
+
+
+
+
