@@ -21,6 +21,7 @@ provision:
 build:
   - shell:
       cmds:
+        - ./autogen.sh
         - ./configure --prefix=/usr
         - make
         - make install DESTDIR={% xbeeOut %}
