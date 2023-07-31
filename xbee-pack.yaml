@@ -4,7 +4,7 @@ type: builder
 
 description: |
 
-in:
+var:
   version: 6.9.7.1
 
 dependencies:
@@ -15,8 +15,8 @@ dependencies:
 
 provision:
   - url:
-      from: https://github.com/kkos/oniguruma/archive/refs/tags/v{% version %}.tar.gz
-      todir: "{% xbeeSrc %}"
+      from: https://github.com/kkos/oniguruma/archive/refs/tags/v{{ .version }}.tar.gz
+      todir: "{{ .xbee.src }}"
 
 build:
   - shell:
@@ -24,8 +24,8 @@ build:
         - ./autogen.sh
         - ./configure --prefix=/usr
         - make
-        - make install DESTDIR={% xbeeOut %}
-      directory: "{% xbeeSrc %}/oniguruma-{% version %}"
+        - make install DESTDIR={{ .xbee.out }}
+      directory: "{{ .xbee.src }}/oniguruma-{{ .version }}"
 
 
 
