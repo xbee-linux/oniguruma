@@ -14,9 +14,7 @@ builders:
   - libtool
 
 provision:
-  - url:
-      from: https://github.com/kkos/oniguruma/archive/refs/tags/v{{ .version }}.tar.gz
-      todir: "{{ .xbee.src }}"
+  url: https://github.com/kkos/oniguruma/archive/refs/tags/v{{ .version }}.tar.gz
 
 build:
   - shell:
