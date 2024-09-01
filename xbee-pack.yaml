@@ -5,7 +5,8 @@ type: builder
 description: |
 
 var:
-  version: 6.9.7.1
+  xbee:
+    version: 6.9.7.1
 
 builders:
   - autoconf
@@ -14,7 +15,7 @@ builders:
   - libtool
 
 provision:
-  url: https://github.com/kkos/oniguruma/archive/refs/tags/v{{ .version }}.tar.gz
+  url: https://github.com/kkos/oniguruma/archive/refs/tags/v{{ .xbee.version }}.tar.gz
 
 build:
   - shell:
@@ -23,7 +24,7 @@ build:
         - ./configure --prefix=/usr
         - make
         - make install DESTDIR={{ .xbee.out }}
-      directory: "{{ .xbee.src }}/oniguruma-{{ .version }}"
+      directory: "{{ .xbee.src }}/oniguruma-{{ .xbee.version }}"
 
 
 
