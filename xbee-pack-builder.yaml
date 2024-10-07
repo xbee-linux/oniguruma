@@ -1,14 +1,12 @@
 schema-version: 1.0
 
-type: builder
-
 description: |
 
 var:
   xbee:
     version: 6.9.7.1
 
-builders:
+builder:
   - autoconf
   - automake
   - m4
